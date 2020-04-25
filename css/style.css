@@ -81,24 +81,23 @@ i:hover {
 
 /* Parallax */
 /*固定する背景*/
-.parallax-bg {
-  background-attachment: fixed;
-  background-position: center;
+.parallax {
+  min-height: 300px;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-size: cover;
-  padding: 8%;
+  background-size: cover;    
 }
 /*各背景の画像*/
-.img-bg-01 {
+.parallax.bg-01 {
   background-image: url(../images/slide-1.jpg);
 }
-.img-bg-02 {
+.parallax.bg-02 {
   background-image: url(../images/slide-2.jpg);
 }
-.img-bg-03 {
+.parallax.bg-03 {
   background-image: url(../images/slide-3.jpg);
 }
-.img-bg-04 {
+.parallax.bg-04 {
   background-image: url(../images/slide-4.jpg);
 }
 
