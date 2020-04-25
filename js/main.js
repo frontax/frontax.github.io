@@ -1,13 +1,13 @@
 $(function() {
 
-  let windowHeight = $(window).height();  // 画面の高さ
+  var windowHeight = $(window).height();  // 画面の高さ
 
-  // Slideshow
+  // Slideshow --------------------------------------------------------------------
 
   // slideshow クラスを持った要素ごとに処理を実行
   $('.slideshow').each(function() {
 
-    let $slides = $(this).find('img'),  // すべてのスライド
+    var $slides = $(this).find('img'),  // すべてのスライド
     slideCount = $slides.length,        // スライドの枚数
     currentIndex = 0;                   // 現在のスライドのインデックス番号
   
@@ -22,7 +22,7 @@ $(function() {
 
       // 次に表示するスライドのインデックス
       // (もし最後のスライドなら最初に戻る)
-      let nextIndex = (currentIndex + 1) % slideCount;
+      var nextIndex = (currentIndex + 1) % slideCount;
 
       // 現在のスライドをフェードアウト
       $slides.eq(currentIndex).fadeOut();
@@ -37,17 +37,17 @@ $(function() {
     
   });
 
+  // Sticky header --------------------------------------------------------------------
+
   if (window.matchMedia("(max-width: 576px)").matches) {
     // ウインドウ幅 576px以下
     
   } else {
     // ウインドウ幅 576px超
     
-    // Sticky header
-  
     $('.page-header').each(function () {
   
-      let $window = $(window), // Window オブジェクト
+      var $window = $(window), // Window オブジェクト
           $header = $(this),   // ヘッダー
   
           // ヘッダーのクローン
@@ -80,29 +80,28 @@ $(function() {
 
   }
 
-  // ハンバーガーメニュー
-  $('.Toggle').click(function() {
+  // ハンバーガーメニュー --------------------------------------------------------------------
 
+  $('.Toggle').click(function() {
+    
     $(this).toggleClass('active');
     
     if ($(this).hasClass('active')) {
-    　$('.NavMenu').addClass('active');　  //クラスを追加
-
+      $('.NavMenu').addClass('active');　  //クラスを追加
+      
     } else {
-    　$('.NavMenu').removeClass('active'); //クラスを削除
-
+      $('.NavMenu').removeClass('active'); //クラスを削除
+      
     }
     
   });
-
-  let overFlg; // マウスカーソルがメニュー上 or メニュー外
+  
+  var overFlg; // マウスカーソルがメニュー上 or メニュー外
 
   $('.NavMenu, .Toggle').hover(function() {
     overFlg = true;
-
   }, function() {
     overFlg = false;
-
   });
 
   // メニュー外をクリックしたらメニューを閉じる
@@ -112,16 +111,15 @@ $(function() {
     }
   });
 
-
-  // Smooth scroll
+  // Smooth scroll --------------------------------------------------------------------
   
   // 各リンクへスクロール
   $('.smooth-scroll a').click(function() {
     // クリックしたボタンの飛び先を取得
-    let id = $(this).attr('href');
+    var id = $(this).attr('href');
 
     // 飛び先の最上部からの距離を取得
-    let position = $(id).offset().top;
+    var position = $(id).offset().top;
 
     $('body,html').animate({
       scrollTop: position
@@ -136,11 +134,142 @@ $(function() {
     }, 500);
     return false;
   });
+  
+  // Scroll effect --------------------------------------------------------------------
+  
+  $(window).scroll(function() {
+    
+    var scrollPosition = $(this).scrollTop();                                  // 現在のスクロール位置
+    var positionAbout = $('#about').offset().top - windowHeight * 1 / 5        // Aboutのトリガーポイント
+    var positionServices = $('#services').offset().top - windowHeight * 1 / 5  // Servicesのトリガーポイント
+    var positionWorks = $('#works').offset().top - windowHeight * 1 / 5        // Worksのトリガーポイント
+    var positionContact = $('#contact').offset().top - windowHeight * 1 / 5    // Contactのトリガーポイント
+    
+    // Parallax --------------------------------------------------------------------
+    
+    var target1 = $("#parallax-01");
+    var target2 = $("#parallax-02");
+    var target3 = $("#parallax-03");
+    var target4 = $("#parallax-04");
+    var targetPosOT1 = target1.offset().top;
+    var targetPosOT2 = target2.offset().top;
+    var targetPosOT3 = target3.offset().top;
+    var targetPosOT4 = target4.offset().top;
+    var targetFactor = 0.8;
+    var scrollYStart1 = targetPosOT1 - windowHeight;
+    var scrollYStart2 = targetPosOT2 - windowHeight;
+    var scrollYStart3 = targetPosOT3 - windowHeight;
+    var scrollYStart4 = targetPosOT4 - windowHeight;
+    
+    if (scrollPosition > scrollYStart1) {
+      target1.css('background-position-y', (scrollPosition - targetPosOT1) * targetFactor + 'px');
+    } else {
+      target1.css('background-position','center top');
+    }
+    
+    if (scrollPosition > scrollYStart2) {
+      target2.css('background-position-y', (scrollPosition - targetPosOT2) * targetFactor + 'px');
+    } else {
+      target2.css('background-position','center top');
+    }
+    
+    if (scrollPosition > scrollYStart3) {
+      target3.css('background-position-y', (scrollPosition - targetPosOT3) * targetFactor + 'px');
+    } else {
+      target3.css('background-position','center top');
+    }
+    
+    if (scrollPosition > scrollYStart4) {
+      target4.css('background-position-y', (scrollPosition - targetPosOT4) * targetFactor + 'px');
+    } else {
+      target4.css('background-position','center top');
+    }
+    
+    // スクロールボタン --------------------------------------------------------------------
+    
+    // scrollが500に達したら表示
+    if (scrollPosition > 500) {
+      $('#page-top').fadeIn();
+      
+    } else {
+      $('#page-top').fadeOut();
+      
+    }
+    
+    // ヘッダーフォーカス --------------------------------------------------------------------
+    
+    // スクロール位置がどのセクションか検出
+    if (scrollPosition < positionAbout) {
+      
+      // 該当セクションのヘッダーのみフォーカス
+      $('.header-about, .header-services, .header-works, .header-contact').removeClass('bgc-white');
+      $('.header-home').addClass('bgc-white');
+      
+    } else if (scrollPosition > positionAbout && scrollPosition < positionServices) {
+      
+      // 該当セクションのヘッダーのみフォーカス
+      $('.header-home, .header-services, .header-works, .header-contact').removeClass('bgc-white');
+      $('.header-about').addClass('bgc-white');
+      
+    } else if (scrollPosition > positionServices && scrollPosition < positionWorks) {
+      
+      // 該当セクションのヘッダーのみフォーカス
+      $('.header-home, .header-about, .header-works, .header-contact').removeClass('bgc-white');
+      $('.header-services').addClass('bgc-white');
+      
+    } else if (scrollPosition > positionWorks && scrollPosition < positionContact) {
+      
+      // 該当セクションのヘッダーのみフォーカス
+      $('.header-home, .header-about, .header-services, .header-contact').removeClass('bgc-white');
+      $('.header-works').addClass('bgc-white');
+      
+    } else if (scrollPosition > positionContact) {
+      
+      // 該当セクションのヘッダーのみフォーカス
+      $('.header-home, .header-about, .header-services, .header-works').removeClass('bgc-white');
+      $('.header-contact').addClass('bgc-white');
+      
+    }
+    
+    // スクロール フェードイン  --------------------------------------------------------------------
+    
+    $('.fadein').each(function() {
+      
+      var targetElement = $(this).offset().top;  // ターゲット要素の高さ
+      
+      if (scrollPosition > targetElement - windowHeight + 200) {
+        $(this).css('opacity','1');
+        $(this).css('transform','translateY(0)');
+        
+      } else {
+        $(this).css('opacity','0');
+        $(this).css('transform','translateY(30px)');
+      }
+      
+    });
+    
+    // スクロール スライドイン  --------------------------------------------------------------------
+    
+    $('.slidein-left, .slidein-right').each(function() {
+      
+      var targetElement = $(this).offset().top;  // ターゲット要素の高さ
+      
+      if (scrollPosition > targetElement - windowHeight + 100) {
+        $(this).addClass('show');
+        
+      } else {
+        $(this).removeClass('show');
+      }
+      
+    });
+    
+  });
+  
+  // プラグイン　--------------------------------------------------------------------
 
+  // Text typing animation --------------------------------------------------------------------
 
-  // Text typing animation
   $('#auto-typing').t({
-    //パラメータ
     speed: 300,        // タイプ速度
     speed_vary: true,  // 文字毎にウエイト
     mistype: 10,       // タイピングミス頻度
@@ -149,100 +278,13 @@ $(function() {
     repeat: true       // リピート
   });
   
+  // lightbox2 パラメータ --------------------------------------------------------------------
 
-  // lightbox2 パラメータ
   lightbox.option({
     'fitImagesInViewport': false,  // trueの場合、画面内に収まるように画像サイズを変更
     'showImageNumberLabel': false, // falseの場合、キャプション下のテキスト非表示
     'maxWidth': 400,               // 設定した場合、画像の幅をピクセル単位で設定
     'wrapAround': true             // trueの場合、最後の画像から最初の画像に戻れる
   });
-
-  // Scroll effect
-  $(window).scroll(function() {
-    
-    let scrollPosition = $(this).scrollTop();                                  // 現在のスクロール位置
-    let positionAbout = $('#about').offset().top - windowHeight * 1 / 5        // Aboutのトリガーポイント
-    let positionServices = $('#services').offset().top - windowHeight * 1 / 5  // Servicesのトリガーポイント
-    let positionWorks = $('#works').offset().top - windowHeight * 1 / 5        // Worksのトリガーポイント
-    let positionContact = $('#contact').offset().top - windowHeight * 1 / 5    // Contactのトリガーポイント
-    
-    // スクロールボタン
-
-    // scrollが500に達したら表示
-    if (scrollPosition > 500) {
-      $('#page-top').fadeIn();
-
-    } else {
-      $('#page-top').fadeOut();
-
-    }
-
-    // ヘッダーフォーカス
-
-    // スクロール位置がどのセクションか検出
-    if (scrollPosition < positionAbout) {
-
-      // 該当セクションのヘッダーのみフォーカス
-      $('.header-about, .header-services, .header-works, .header-contact').removeClass('bgc-white');
-      $('.header-home').addClass('bgc-white');
-
-    } else if (scrollPosition > positionAbout && scrollPosition < positionServices) {
-
-      // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-services, .header-works, .header-contact').removeClass('bgc-white');
-      $('.header-about').addClass('bgc-white');
-
-    } else if (scrollPosition > positionServices && scrollPosition < positionWorks) {
-
-      // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-about, .header-works, .header-contact').removeClass('bgc-white');
-      $('.header-services').addClass('bgc-white');
-
-    } else if (scrollPosition > positionWorks && scrollPosition < positionContact) {
-
-      // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-about, .header-services, .header-contact').removeClass('bgc-white');
-      $('.header-works').addClass('bgc-white');
-
-    } else if (scrollPosition > positionContact) {
-
-      // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-about, .header-services, .header-works').removeClass('bgc-white');
-      $('.header-contact').addClass('bgc-white');
-
-    }
-
-    // スクロール フェードイン
-    $('.fadein').each(function() {
-
-      let targetElement = $(this).offset().top;  // ターゲット要素の高さ
-      
-      if (scrollPosition > targetElement - windowHeight + 200) {
-        $(this).css('opacity','1');
-        $(this).css('transform','translateY(0)');
-
-      } else {
-        $(this).css('opacity','0');
-        $(this).css('transform','translateY(30px)');
-      }
-      
-    });
-    
-    // スクロール スライドイン
-    $('.slidein-left, .slidein-right').each(function() {
-      
-      let targetElement = $(this).offset().top;  // ターゲット要素の高さ
-      
-      if (scrollPosition > targetElement - windowHeight + 100) {
-        $(this).addClass('show');
-
-      } else {
-        $(this).removeClass('show');
-      }
-
-    });
-
-  });
-
+  
 });
