@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 共通部分 */
+/* 共通部分 -------------------------------------------------------------------- */ 
 html {
   font-size: 62.5%;
 }
@@ -75,33 +75,36 @@ hr {
 .marker-blue {
   background: linear-gradient(transparent 82%, #23B6FE 0%);
 }
-i:hover {
+i:hover,
+a:hover {
   color: #23B6FE;
 }
 
-/* Parallax */
-/*固定する背景*/
-.parallax {
-  min-height: 300px;
-  background-position: center top;
+/* Parallax -------------------------------------------------------------------- */
+/* 固定する背景 */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;    
+  background-size: cover;
+  padding: 8%;
 }
-/*各背景の画像*/
-.parallax.bg-01 {
+
+/* 各背景の画像 */
+.img-bg-01 {
   background-image: url(../images/slide-1.jpg);
 }
-.parallax.bg-02 {
+.img-bg-02 {
   background-image: url(../images/slide-2.jpg);
 }
-.parallax.bg-03 {
+.img-bg-03 {
   background-image: url(../images/slide-3.jpg);
 }
-.parallax.bg-04 {
+.img-bg-04 {
   background-image: url(../images/slide-4.jpg);
 }
 
-/* Slideshow */
+/* Slideshow -------------------------------------------------------------------- */
 .slideshow {
   height: 960px;
   max-width: 100%;
@@ -113,8 +116,11 @@ i:hover {
   object-fit: cover;
   position: absolute;
 }
+.slideshow-small {
+  display: none;
+}
 
-/* Hero header */
+/* Hero header -------------------------------------------------------------------- */
 .hero-header {
   position: relative;
 }
@@ -141,7 +147,7 @@ i:hover {
   width: 130px;
 }
 
-/* スクロールダウン */
+/* スクロールダウン --------------------------------------------------------------------　*/
 .arrowWrap {
   height: 200px;
   position: absolute;
@@ -190,7 +196,7 @@ i:hover {
   }
 }
 
-/* Sticky header */
+/* Sticky header --------------------------------------------------------------------　*/
 .page-header {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -277,12 +283,12 @@ i:hover {
   color: #23B6FE;
 }
 
-/* ハンバーガーメニュー */
+/* ハンバーガーメニュー --------------------------------------------------------------------　*/
 .Toggle {
   display: none;
 }
   
-/* about */
+/* about --------------------------------------------------------------------　*/
 #about {
   padding-bottom: 0;
   padding-top: 100px;
@@ -311,15 +317,11 @@ i:hover {
 .text-box {
   height: 230px;
   padding: 10px;
-  position: relative;
 }
 .text-box h3 {
   font-size: 2.8rem;
   line-height: 50px;
-  position: absolute;
-  top: 65%;
-  transform: translateY(-50%);
-  -webkit-transform : translateY(-50%);
+  margin-bottom: 20px;
 }
 .section-about-1 {
   margin: 0 0 0 calc(50% - 50vw - 15px);
@@ -334,7 +336,8 @@ i:hover {
   transition: 1.5s;
   -webkit-transition: 1.5s;
 }
-.section-about-1 img, .section-about-2 img {
+.section-about-1 img,
+.section-about-2 img {
   height: 500px;
   object-fit: cover;
 }
@@ -343,7 +346,7 @@ i:hover {
   line-height: 60px;
 }
 
-/* スライドイン */
+/* スライドイン --------------------------------------------------------------------　*/
 .slidein-left {
   transform: translate(-1140px, 0);
 }
@@ -351,7 +354,7 @@ i:hover {
   transform: translate(1140px, 0); 
 }
 .slidein-up {
-  transform: translate(0, 600px);
+  transform: translate(0, 400px);
 }
 .slidein-left.show {
   transform: translate(0, 0) !important;
@@ -363,13 +366,15 @@ i:hover {
   transform: translate(0, 0) !important;
 }
 
-/* services */
+/* services --------------------------------------------------------------------　*/
 .section-services {
   border: 1px rgb(128, 128, 128) solid;
   border-radius: 3px;
   color: rgb(128, 128, 128);
   height: 280px;
+  overflow: hidden;
   padding: 20px 10px;
+  margin-bottom: 20px;
   transition: all 0.5s ease 0s;
   -webkit-transition: all 0.5s ease 0s;
 }
@@ -388,7 +393,7 @@ i:hover {
   margin: 20px 0;
 }
 
-/* works */
+/* works --------------------------------------------------------------------　*/
 .section-works {
   height: 200px;
   margin-bottom: 30px;
@@ -407,10 +412,11 @@ i:hover {
 }
 #works h3 {
   font-size: 2.2rem;
+  margin-bottom: 35px;
   margin-top: 10px;
 }
 
-/* contact */
+/* contact --------------------------------------------------------------------　*/
 #contact p {
   color: rgb(128, 128, 128);
   margin-bottom: 15px;
@@ -434,7 +440,7 @@ i:hover {
   width: 180px;
 }
 
-/* フッター */
+/* フッター --------------------------------------------------------------------　*/
 footer {
   font-size: 2.2rem;
   padding: 35px 0;
@@ -446,7 +452,7 @@ small {
   font-size: 1.4rem;
 }
 
-/* ページスクロール */
+/* ページスクロール --------------------------------------------------------------------　*/
 #page-top {
   background: #d8d8d8;
   border-radius: 50%;
@@ -463,20 +469,49 @@ small {
   width: 60px;
 }
 
-/* モバイル版 */
-@media (max-width: 576px) {
+/* モバイル版 --------------------------------------------------------------------　*/
+@media (max-width: 992px) {
+  
+  .parallax-bg {
+    display: none;
+  }
 
+  /* about --------------------------------------------------------------------　*/
+  .status-text {
+    padding-left: 30px;
+  }
+  .status-img {
+    padding-right: 0;
+  }
+  .skills-text {
+    order: 2;
+  }
+  .skills-img {
+    order: 1;
+    padding-left: 0;
+  }
+
+  /* services --------------------------------------------------------------------　*/
+  .section-services {
+    height: 280px;
+    padding: 40px;
+  }
+  
+}
+
+@media (max-width: 576px) {
+  
   html {
     font-size: 55%;
   }
-
+  
   .site-logo,
   .clearfix:before,
   .clearfix:after {
     display: none;
   }
 
-  /* ヘッダー */
+  /* ヘッダー --------------------------------------------------------------------　*/
   .site-logo-small {
     display: block;
     position: fixed;                      /* bodyに対しての絶対位置指定 */
@@ -485,7 +520,7 @@ small {
     z-index: 3;
   }
 
-  /* ハンバーガーメニュー */
+  /* ハンバーガーメニュー --------------------------------------------------------------------　*/
   .primary-nav {
     line-height: 18px;
   }
@@ -531,15 +566,15 @@ small {
   }
   /* ナビメニューのスタイルを指定 */
   nav.NavMenu {
-    background: rgba(240, 240, 240, 0.25);           /* 背景を白にする */
-    left: 0;                      /* 表示位置を指定 */
-    position: fixed;              /* 表示位置を固定 */
-    text-align: center;           /* テキストを中央揃え */
-    top: 0;                       /* 表示位置を指定 */
-    transform: translateY(-100%); /* ナビを上に隠す */
-    transition: all 0.6s;         /* アニメーションの時間を指定 */
-    width: 100%;                  /* 全幅表示 */
-    z-index: 2;                   /* 重ね順を変更 */
+    background: rgba(240, 240, 240, 0.3);           /* 背景を白にする */
+    position: fixed;                /* 表示位置を固定 */
+    right: 0;                       /* 表示位置を指定 */
+    text-align: center;             /* テキストを中央揃え */
+    top: 50px;                      /* 表示位置を指定 */
+    transform: translateX(100%);    /* ナビを右に隠す */
+    transition: all 0.6s;           /* アニメーションの時間を指定 */
+    width: 30%;                     /* 全幅表示 */
+    z-index: 2;                     /* 重ね順を変更 */
   }
   nav.NavMenu ul {
     margin: 0 auto;
@@ -564,45 +599,39 @@ small {
     transform: translateY(0%);
   }
 
-  /* Slideshow */
+  /* Slideshow --------------------------------------------------------------------　*/
   .slideshow {
-    height: 600px;
-    /* max-width: 100%;
+    display: none;
+  }
+  .slideshow-small {
+    display: block;
+    height: 640px;
+    max-width: 100%;
     overflow: hidden;
-    position: relative; */
+    position: relative;
+  }
+  .slideshow-small img {
+    display: none;
+    object-fit: cover;
+    position: absolute;
   }
 
-  .text-box h3 {
-    margin: 0 auto;
+  /* about --------------------------------------------------------------------　*/
+  .text-box {
+    margin-bottom: 40px;
     text-align: center;
   }
-
-  .skills-text {
-    order: 2;
-  }
-  .skills-img {
-    order: 1;
+  .section-about-1 img,
+  .section-about-2 img {
+    height: 300px;
   }
 
-
-
+  /* services --------------------------------------------------------------------　*/
   .section-services {
     height: 230px;
-    margin-bottom: 20px;
-    padding: 40px;
   }
 
-  #works h3 {
-    margin-bottom: 35px;
-  }
-
-
-  /* フッター */
-  footer {
-
-  }
-
-  /* ページスクロール */
+  /* ページスクロール --------------------------------------------------------------------　*/
   #page-top {
     bottom: 10px;
     font-size: 2.4rem;
