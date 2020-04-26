@@ -78,15 +78,20 @@ $(function() {
   
       // スクロール時に処理を実行する
       $window.scroll(function () {
+
         if ($window.scrollTop() > threshold) {
           $headerCloneContainer.addClass('visible');
+
         } else {
           $headerCloneContainer.removeClass('visible');
+
         }
+
       });
   
       // スクロールイベントを発生させ、初期位置を決定
       $window.trigger('scroll');
+
     });
 
   }
@@ -110,16 +115,23 @@ $(function() {
   var overFlg; // マウスカーソルがメニュー上 or メニュー外
 
   $('.NavMenu, .Toggle').hover(function() {
+
     overFlg = true;
+
   }, function() {
+
     overFlg = false;
+
   });
 
   // メニュー外をクリックしたらメニューを閉じる
   $('body').click(function() {
+
     if (overFlg == false) {
       $('.NavMenu, .Toggle').removeClass('active');
+
     }
+
   });
 
   // Smooth scroll --------------------------------------------------------------------
@@ -135,15 +147,20 @@ $(function() {
     $('body,html').animate({
       scrollTop: position
     }, 500);
+
     return false;
+
   });
 
   // スクロールボタン スクロールでトップへ戻る
   $('#page-top').click(function() {
+
     $('body,html').animate({
       scrollTop: 0
     }, 500);
+
     return false;
+
   });
   
   // Scroll effect --------------------------------------------------------------------
@@ -215,6 +232,7 @@ $(function() {
       } else {
         $(this).css('opacity','0');
         $(this).css('transform','translateY(30px)');
+
       }
       
     });
@@ -230,6 +248,7 @@ $(function() {
         
       } else {
         $(this).removeClass('show');
+
       }
       
     });
@@ -254,7 +273,7 @@ $(function() {
   lightbox.option({
     'fitImagesInViewport': false,  // trueの場合、画面内に収まるように画像サイズを変更
     'showImageNumberLabel': false, // falseの場合、キャプション下のテキスト非表示
-    'maxWidth': 400,               // 設定した場合、画像の幅をピクセル単位で設定
+    'maxWidth': 376,               // 設定した場合、画像の幅をピクセル単位で設定
     'wrapAround': true             // trueの場合、最後の画像から最初の画像に戻れる
   });
   

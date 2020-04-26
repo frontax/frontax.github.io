@@ -32,7 +32,16 @@ a:hover {
   color: #23B6FE;
   text-decoration: none;
 }
+i {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
 i:hover {
+  color: #23B6FE;
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+td:hover {
   color: #23B6FE;
 }
 img {
@@ -471,7 +480,7 @@ small {
   width: 60px;
 }
 
-/* モバイル版 --------------------------------------------------------------------　*/
+/* タブレット --------------------------------------------------------------------　*/
 @media (max-width: 992px) {
   
   .parallax-bg {
@@ -507,12 +516,12 @@ small {
   
 }
 
+/* スマホ --------------------------------------------------------------------　*/
 @media (max-width: 576px) {
   
   html {
     font-size: 55%;
   }
-  
   .site-logo,
   .clearfix:before,
   .clearfix:after {
