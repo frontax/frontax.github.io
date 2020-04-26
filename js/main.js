@@ -4,38 +4,79 @@ $(function() {
 
   // Slideshow --------------------------------------------------------------------
 
-  // slideshow クラスを持った要素ごとに処理を実行
-  $('.slideshow').each(function() {
+  if (window.matchMedia("(max-width: 576px)").matches) {
+    // ウインドウ幅 576px以下
 
-    var $slides = $(this).find('img'),  // すべてのスライド
-    slideCount = $slides.length,        // スライドの枚数
-    currentIndex = 0;                   // 現在のスライドのインデックス番号
-  
-    // 1 番目のスライドをフェードインで表示
-    $slides.eq(currentIndex).fadeIn();
+    // slideshow クラスを持った要素ごとに処理を実行
+    $('.slideshow-small').each(function() {
 
-    // 5500 ミリ秒ごとに showNextSlide 関数を実行
-    setInterval(showNextSlide, 5500);
-
-    // 次のスライドを表示する関数
-    function showNextSlide() {
-
-      // 次に表示するスライドのインデックス
-      // (もし最後のスライドなら最初に戻る)
-      var nextIndex = (currentIndex + 1) % slideCount;
-
-      // 現在のスライドをフェードアウト
-      $slides.eq(currentIndex).fadeOut();
-
-      // 次のスライドをフェードイン
-      $slides.eq(nextIndex).fadeIn();
-
-      // 現在のスライドのインデックスを更新
-      currentIndex = nextIndex;
-
-    }
+      var $slides = $(this).find('img'),  // すべてのスライド
+      slideCount = $slides.length,        // スライドの枚数
+      currentIndex = 0;                   // 現在のスライドのインデックス番号
     
-  });
+      // 1 番目のスライドをフェードインで表示
+      $slides.eq(currentIndex).fadeIn();
+  
+      // 5500 ミリ秒ごとに showNextSlide 関数を実行
+      setInterval(showNextSlide, 5500);
+  
+      // 次のスライドを表示する関数
+      function showNextSlide() {
+  
+        // 次に表示するスライドのインデックス
+        // (もし最後のスライドなら最初に戻る)
+        var nextIndex = (currentIndex + 1) % slideCount;
+  
+        // 現在のスライドをフェードアウト
+        $slides.eq(currentIndex).fadeOut();
+  
+        // 次のスライドをフェードイン
+        $slides.eq(nextIndex).fadeIn();
+  
+        // 現在のスライドのインデックスを更新
+        currentIndex = nextIndex;
+  
+      }
+      
+    });
+
+  } else {
+    // ウインドウ幅 576px超
+    
+    // slideshow クラスを持った要素ごとに処理を実行
+    $('.slideshow').each(function() {
+  
+      var $slides = $(this).find('img'),  // すべてのスライド
+      slideCount = $slides.length,        // スライドの枚数
+      currentIndex = 0;                   // 現在のスライドのインデックス番号
+    
+      // 1 番目のスライドをフェードインで表示
+      $slides.eq(currentIndex).fadeIn();
+  
+      // 5500 ミリ秒ごとに showNextSlide 関数を実行
+      setInterval(showNextSlide, 5500);
+  
+      // 次のスライドを表示する関数
+      function showNextSlide() {
+  
+        // 次に表示するスライドのインデックス
+        // (もし最後のスライドなら最初に戻る)
+        var nextIndex = (currentIndex + 1) % slideCount;
+  
+        // 現在のスライドをフェードアウト
+        $slides.eq(currentIndex).fadeOut();
+  
+        // 次のスライドをフェードイン
+        $slides.eq(nextIndex).fadeIn();
+  
+        // 現在のスライドのインデックスを更新
+        currentIndex = nextIndex;
+  
+      }
+      
+    });
+
+  }
 
   // Sticky header --------------------------------------------------------------------
 
@@ -145,46 +186,6 @@ $(function() {
     var positionWorks = $('#works').offset().top - windowHeight * 1 / 5        // Worksのトリガーポイント
     var positionContact = $('#contact').offset().top - windowHeight * 1 / 5    // Contactのトリガーポイント
     
-    // Parallax --------------------------------------------------------------------
-    
-    var target1 = $("#parallax-01");
-    var target2 = $("#parallax-02");
-    var target3 = $("#parallax-03");
-    var target4 = $("#parallax-04");
-    var targetPosOT1 = target1.offset().top;
-    var targetPosOT2 = target2.offset().top;
-    var targetPosOT3 = target3.offset().top;
-    var targetPosOT4 = target4.offset().top;
-    var targetFactor = 0.8;
-    var scrollYStart1 = targetPosOT1 - windowHeight;
-    var scrollYStart2 = targetPosOT2 - windowHeight;
-    var scrollYStart3 = targetPosOT3 - windowHeight;
-    var scrollYStart4 = targetPosOT4 - windowHeight;
-    
-    if (scrollPosition > scrollYStart1) {
-      target1.css('background-position-y', (scrollPosition - targetPosOT1) * targetFactor + 'px');
-    } else {
-      target1.css('background-position','center top');
-    }
-    
-    if (scrollPosition > scrollYStart2) {
-      target2.css('background-position-y', (scrollPosition - targetPosOT2) * targetFactor + 'px');
-    } else {
-      target2.css('background-position','center top');
-    }
-    
-    if (scrollPosition > scrollYStart3) {
-      target3.css('background-position-y', (scrollPosition - targetPosOT3) * targetFactor + 'px');
-    } else {
-      target3.css('background-position','center top');
-    }
-    
-    if (scrollPosition > scrollYStart4) {
-      target4.css('background-position-y', (scrollPosition - targetPosOT4) * targetFactor + 'px');
-    } else {
-      target4.css('background-position','center top');
-    }
-    
     // スクロールボタン --------------------------------------------------------------------
     
     // scrollが500に達したら表示
@@ -250,7 +251,7 @@ $(function() {
     
     // スクロール スライドイン  --------------------------------------------------------------------
     
-    $('.slidein-left, .slidein-right').each(function() {
+    $('.slidein-left, .slidein-right, .slidein-up').each(function() {
       
       var targetElement = $(this).offset().top;  // ターゲット要素の高さ
       
