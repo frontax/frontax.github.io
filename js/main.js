@@ -273,7 +273,7 @@ $(function() {
   lightbox.option({
     'fitImagesInViewport': false,  // trueの場合、画面内に収まるように画像サイズを変更
     'showImageNumberLabel': false, // falseの場合、キャプション下のテキスト非表示
-    'maxWidth': 376,               // 設定した場合、画像の幅をピクセル単位で設定
+    'maxWidth': 360,               // 設定した場合、画像の幅をピクセル単位で設定
     'wrapAround': true             // trueの場合、最後の画像から最初の画像に戻れる
   });
   
