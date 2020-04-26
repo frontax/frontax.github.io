@@ -4,6 +4,7 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 body {
   background-color: #333;
@@ -11,6 +12,8 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 h1, h2, h3, p, ul {
   margin: 0;
@@ -26,8 +29,11 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: inherit;
+  color: #23B6FE;
   text-decoration: none;
+}
+i:hover {
+  color: #23B6FE;
 }
 img {
   max-width: 100%;
@@ -66,23 +72,18 @@ hr {
   height: 2px;
   width: 20%;
 }
+.marker-blue {
+  background: linear-gradient(transparent 82%, #23B6FE 0%);
+}
 .fadein {
-  opacity : 0;
+  opacity: 0;
   transition: all 2.5s;
   -webkit-transition: all 2.5s;
   transform: translateY(30px);
   -webkit-transform: translateY(30px);
 }
-.marker-blue {
-  background: linear-gradient(transparent 82%, #23B6FE 0%);
-}
-i:hover,
-a:hover {
-  color: #23B6FE;
-}
 
 /* Parallax -------------------------------------------------------------------- */
-/* 固定する背景 */
 .parallax-bg {
   background-attachment: fixed;
   background-position: center;
@@ -90,8 +91,6 @@ a:hover {
   background-size: cover;
   padding: 8%;
 }
-
-/* 各背景の画像 */
 .img-bg-01 {
   background-image: url(../images/slide-1.jpg);
 }
@@ -161,7 +160,8 @@ a:hover {
   transform: rotate(90deg);
 }
 .arrow {
-  background-color: #eee;
+  /* background-color: #eee; */
+  background-color: #23B6FE;
   height: 100px;
   margin: 50px auto;
   overflow: hidden;
@@ -216,7 +216,7 @@ a:hover {
 .site-logo img {
   padding-left: 5px;
   position: relative;
-  top: 12px;
+  top: 15px;
 }
 .site-logo-small {
   display: none;
@@ -244,7 +244,7 @@ a:hover {
   background-color: rgb(0, 0, 0);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  opacity: 0.9;
+  opacity: .9;
   position: fixed;
   top: -35px;
   transition: top 0.25s;
@@ -271,7 +271,7 @@ a:hover {
   content: url(../images/logo-small.png);
   display: inline-block;
   position: relative;
-  top: 1px;
+  top: 1.5px;
 }
 .page-header-clone .primary-nav {
   font-size: 1.4rem;
@@ -407,7 +407,7 @@ a:hover {
   -webkit-transition: all 0.5s ease 0s;
 }
 .section-works img:hover {
-  opacity: 0.6;
+  opacity: .6;
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
 }
@@ -420,12 +420,13 @@ a:hover {
 /* contact --------------------------------------------------------------------　*/
 #contact p {
   color: rgb(128, 128, 128);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .form-box {
   background-color: #333;
   border: 1px rgb(128, 128, 128) solid;
   font-size: 1.6rem;
+  margin-bottom: 20px;
   transition: all 0.5s ease 0s;
   -webkit-transition: all 0.5s ease 0s;
 }
@@ -497,6 +498,12 @@ small {
     height: 280px;
     padding: 40px;
   }
+
+  /* works --------------------------------------------------------------------　*/
+  .section-works {
+    margin: 0 auto;
+    max-width: 80%;
+  }
   
 }
 
@@ -517,7 +524,7 @@ small {
     display: block;
     position: fixed;                      /* bodyに対しての絶対位置指定 */
     left: 15px;
-    top: 12px;
+    top: 10px;
     z-index: 3;
   }
 
@@ -530,7 +537,7 @@ small {
     cursor: pointer;
     display: block;
     height: 42px;
-    position: fixed;                      /* bodyに対しての絶対位置指定 */
+    position: fixed;                       /* bodyに対しての絶対位置指定 */
     right: 10px;
     top: 6px;
     width: 42px;
@@ -541,8 +548,8 @@ small {
     display: block;
     left: 6px;
     position: absolute;
-    transition: .35s ease-in-out;			    /* 変化の速度を指定 */
-    -webkit-transition: .35s ease-in-out;	/* 変化の速度を指定 */
+    transition: .35s ease-in-out;			     /* 変化の速度を指定 */
+    -webkit-transition: .35s ease-in-out;  /* 変化の速度を指定 */
     width: 30px;
   }
   .Toggle span:nth-child(1) {
@@ -567,15 +574,15 @@ small {
   }
   /* ナビメニューのスタイルを指定 */
   nav.NavMenu {
-    background: rgba(240, 240, 240, 0.3);           /* 背景を白にする */
-    position: fixed;                /* 表示位置を固定 */
-    right: 0;                       /* 表示位置を指定 */
-    text-align: center;             /* テキストを中央揃え */
-    top: 50px;                      /* 表示位置を指定 */
-    transform: translateX(100%);    /* ナビを右に隠す */
-    transition: all 0.6s;           /* アニメーションの時間を指定 */
-    width: 30%;                     /* 全幅表示 */
-    z-index: 2;                     /* 重ね順を変更 */
+    background: rgba(240, 240, 240, 0.3);  /* 背景を白にする */
+    position: fixed;                         /* 表示位置を固定 */
+    right: 0;                                /* 表示位置を指定 */
+    text-align: center;                      /* テキストを中央揃え */
+    top: 50px;                               /* 表示位置を指定 */
+    transform: translateX(100%);             /* ナビを右に隠す */
+    transition: all 0.6s;                    /* アニメーションの時間を指定 */
+    width: 30%;                              /* 全幅表示 */
+    z-index: 2;                              /* 重ね順を変更 */
   }
   nav.NavMenu ul {
     margin: 0 auto;
@@ -630,6 +637,12 @@ small {
   /* services --------------------------------------------------------------------　*/
   .section-services {
     height: 230px;
+  }
+
+  /* works --------------------------------------------------------------------　*/
+  .section-works {
+    margin: 0 auto;
+    max-width: 55%;
   }
 
   /* ページスクロール --------------------------------------------------------------------　*/

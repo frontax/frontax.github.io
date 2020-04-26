@@ -1,80 +1,50 @@
 $(function() {
 
-  var windowHeight = $(window).height();  // 画面の高さ
+  var windowHeight = $(window).height();    // 画面の高さ
 
   // Slideshow --------------------------------------------------------------------
+
+  function slideShow() {
+  
+    var $slides = $(this).find('img'),      // すべてのスライド
+        slideCount = $slides.length,        // スライドの枚数
+        currentIndex = 0;                   // 現在のスライドのインデックス番号
+
+    // 1 番目のスライドをフェードインで表示
+    $slides.eq(currentIndex).fadeIn();
+
+    // 5500 ミリ秒ごとに showNextSlide 関数を実行
+    setInterval(showNextSlide, 5500);
+
+    // 次のスライドを表示する関数
+    function showNextSlide() {
+
+      // 次に表示するスライドのインデックス
+      // (もし最後のスライドなら最初に戻る)
+      var nextIndex = (currentIndex + 1) % slideCount;
+
+      // 現在のスライドをフェードアウト
+      $slides.eq(currentIndex).fadeOut();
+
+      // 次のスライドをフェードイン
+      $slides.eq(nextIndex).fadeIn();
+
+      // 現在のスライドのインデックスを更新
+      currentIndex = nextIndex;
+  
+    }
+
+  }
 
   if (window.matchMedia("(max-width: 576px)").matches) {
     // ウインドウ幅 576px以下
 
-    // slideshow クラスを持った要素ごとに処理を実行
-    $('.slideshow-small').each(function() {
-
-      var $slides = $(this).find('img'),  // すべてのスライド
-      slideCount = $slides.length,        // スライドの枚数
-      currentIndex = 0;                   // 現在のスライドのインデックス番号
-    
-      // 1 番目のスライドをフェードインで表示
-      $slides.eq(currentIndex).fadeIn();
-  
-      // 5500 ミリ秒ごとに showNextSlide 関数を実行
-      setInterval(showNextSlide, 5500);
-  
-      // 次のスライドを表示する関数
-      function showNextSlide() {
-  
-        // 次に表示するスライドのインデックス
-        // (もし最後のスライドなら最初に戻る)
-        var nextIndex = (currentIndex + 1) % slideCount;
-  
-        // 現在のスライドをフェードアウト
-        $slides.eq(currentIndex).fadeOut();
-  
-        // 次のスライドをフェードイン
-        $slides.eq(nextIndex).fadeIn();
-  
-        // 現在のスライドのインデックスを更新
-        currentIndex = nextIndex;
-  
-      }
-      
-    });
+    $('.slideshow-small').each(slideShow);
 
   } else {
     // ウインドウ幅 576px超
     
-    // slideshow クラスを持った要素ごとに処理を実行
-    $('.slideshow').each(function() {
-  
-      var $slides = $(this).find('img'),  // すべてのスライド
-      slideCount = $slides.length,        // スライドの枚数
-      currentIndex = 0;                   // 現在のスライドのインデックス番号
-    
-      // 1 番目のスライドをフェードインで表示
-      $slides.eq(currentIndex).fadeIn();
-  
-      // 5500 ミリ秒ごとに showNextSlide 関数を実行
-      setInterval(showNextSlide, 5500);
-  
-      // 次のスライドを表示する関数
-      function showNextSlide() {
-  
-        // 次に表示するスライドのインデックス
-        // (もし最後のスライドなら最初に戻る)
-        var nextIndex = (currentIndex + 1) % slideCount;
-  
-        // 現在のスライドをフェードアウト
-        $slides.eq(currentIndex).fadeOut();
-  
-        // 次のスライドをフェードイン
-        $slides.eq(nextIndex).fadeIn();
-  
-        // 現在のスライドのインデックスを更新
-        currentIndex = nextIndex;
-  
-      }
-      
-    });
+    $('.slideshow').each(slideShow);
 
   }
 
@@ -108,11 +78,11 @@ $(function() {
   
       // スクロール時に処理を実行する
       $window.scroll(function () {
-          if ($window.scrollTop() > threshold) {
-              $headerCloneContainer.addClass('visible');
-          } else {
-              $headerCloneContainer.removeClass('visible');
-          }
+        if ($window.scrollTop() > threshold) {
+          $headerCloneContainer.addClass('visible');
+        } else {
+          $headerCloneContainer.removeClass('visible');
+        }
       });
   
       // スクロールイベントを発生させ、初期位置を決定
@@ -180,11 +150,11 @@ $(function() {
   
   $(window).scroll(function() {
     
-    var scrollPosition = $(this).scrollTop();                                  // 現在のスクロール位置
-    var positionAbout = $('#about').offset().top - windowHeight * 1 / 5        // Aboutのトリガーポイント
-    var positionServices = $('#services').offset().top - windowHeight * 1 / 5  // Servicesのトリガーポイント
-    var positionWorks = $('#works').offset().top - windowHeight * 1 / 5        // Worksのトリガーポイント
-    var positionContact = $('#contact').offset().top - windowHeight * 1 / 5    // Contactのトリガーポイント
+    var scrollPosition = $(this).scrollTop(),                                   // 現在のスクロール位置
+        positionAbout = $('#about').offset().top - windowHeight * 1 / 5,        // Aboutのトリガーポイント
+        positionServices = $('#services').offset().top - windowHeight * 1 / 5,  // Servicesのトリガーポイント
+        positionWorks = $('#works').offset().top - windowHeight * 1 / 5,        // Worksのトリガーポイント
+        positionContact = $('#contact').offset().top - windowHeight * 1 / 5;    // Contactのトリガーポイント
     
     // スクロールボタン --------------------------------------------------------------------
     
