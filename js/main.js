@@ -239,7 +239,7 @@ $(function() {
     
     // スクロール スライドイン  --------------------------------------------------------------------
     
-    $('.slidein-left, .slidein-right, .slidein-up').each(function() {
+    $('.slidein-left, .slidein-right').each(function() {
       
       var targetElement = $(this).offset().top;  // ターゲット要素の高さ
       

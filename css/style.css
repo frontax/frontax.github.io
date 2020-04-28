@@ -363,16 +363,10 @@ hr {
 .slidein-right {
   transform: translate(1140px, 0); 
 }
-.slidein-up {
-  transform: translate(0, 400px);
-}
 .slidein-left.show {
   transform: translate(0, 0) !important;
 }
 .slidein-right.show {
-  transform: translate(0, 0) !important;
-}
-.slidein-up.show {
   transform: translate(0, 0) !important;
 }
 
