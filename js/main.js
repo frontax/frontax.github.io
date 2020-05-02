@@ -39,7 +39,7 @@ $(function() {
   if (window.matchMedia("(max-width: 576px)").matches) {
     // ウインドウ幅 576px以下
 
-    $('.slideshow-small').each(slideShow);
+    $('.slideshowSmall').each(slideShow);
 
   } else {
     // ウインドウ幅 576px超
@@ -56,7 +56,7 @@ $(function() {
   } else {
     // ウインドウ幅 576px超
     
-    $('.page-header').each(function () {
+    $('.pageHeader').each(function () {
   
       var $window = $(window), // Window オブジェクト
           $header = $(this),   // ヘッダー
@@ -65,7 +65,7 @@ $(function() {
           $headerClone = $header.contents().clone(),
   
           // ヘッダーのクローンのコンテナー
-          $headerCloneContainer = $('<div class="page-header-clone"></div>'),
+          $headerCloneContainer = $('<div class="pageHeaderClone"></div>'),
   
           // HTML の上辺からヘッダーの底辺までの距離 = ヘッダーのトップ位置 + ヘッダーの高さ
           threshold = $header.offset().top + $header.outerHeight();
@@ -98,7 +98,7 @@ $(function() {
 
   // ハンバーガーメニュー --------------------------------------------------------------------
 
-  $('.Toggle').click(function() {
+  $('.toggle').click(function() {
     
     $(this).toggleClass('active');
     
@@ -114,7 +114,7 @@ $(function() {
   
   var overFlg; // マウスカーソルがメニュー上 or メニュー外
 
-  $('.NavMenu, .Toggle').hover(function() {
+  $('.NavMenu, .toggle').hover(function() {
 
     overFlg = true;
 
@@ -128,7 +128,7 @@ $(function() {
   $('body').click(function() {
 
     if (overFlg == false) {
-      $('.NavMenu, .Toggle').removeClass('active');
+      $('.NavMenu, .toggle').removeClass('active');
 
     }
 
@@ -137,7 +137,7 @@ $(function() {
   // Smooth scroll --------------------------------------------------------------------
   
   // 各リンクへスクロール
-  $('.smooth-scroll a').click(function() {
+  $('.smoothScroll a').click(function() {
     // クリックしたボタンの飛び先を取得
     var id = $(this).attr('href');
 
@@ -153,7 +153,7 @@ $(function() {
   });
 
   // スクロールボタン スクロールでトップへ戻る
-  $('#page-top').click(function() {
+  $('#pageTop').click(function() {
 
     $('body,html').animate({
       scrollTop: 0
@@ -177,10 +177,10 @@ $(function() {
     
     // scrollが500に達したら表示
     if (scrollPosition > 500) {
-      $('#page-top').fadeIn();
+      $('#pageTop').fadeIn();
       
     } else {
-      $('#page-top').fadeOut();
+      $('#pageTop').fadeOut();
       
     }
     
@@ -190,48 +190,78 @@ $(function() {
     if (scrollPosition < positionAbout) {
       
       // 該当セクションのヘッダーのみフォーカス
-      $('.header-about, .header-services, .header-works, .header-contact').removeClass('bgc-white');
-      $('.header-home').addClass('bgc-white');
+      $('.headerAbout, .headerServices, .headerWorks, .headerContact').removeClass('bgcWhite');
+      $('.headerHome').addClass('bgcWhite');
       
     } else if (scrollPosition > positionAbout && scrollPosition < positionServices) {
       
       // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-services, .header-works, .header-contact').removeClass('bgc-white');
-      $('.header-about').addClass('bgc-white');
+      $('.headerHome, .headerServices, .headerWorks, .headerContact').removeClass('bgcWhite');
+      $('.headerAbout').addClass('bgcWhite');
       
     } else if (scrollPosition > positionServices && scrollPosition < positionWorks) {
       
       // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-about, .header-works, .header-contact').removeClass('bgc-white');
-      $('.header-services').addClass('bgc-white');
+      $('.headerHome, .headerAbout, .headerWorks, .headerContact').removeClass('bgcWhite');
+      $('.headerServices').addClass('bgcWhite');
       
     } else if (scrollPosition > positionWorks && scrollPosition < positionContact) {
       
       // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-about, .header-services, .header-contact').removeClass('bgc-white');
-      $('.header-works').addClass('bgc-white');
+      $('.headerHome, .headerAbout, .headerServices, .headerContact').removeClass('bgcWhite');
+      $('.headerWorks').addClass('bgcWhite');
       
     } else if (scrollPosition > positionContact) {
       
       // 該当セクションのヘッダーのみフォーカス
-      $('.header-home, .header-about, .header-services, .header-works').removeClass('bgc-white');
-      $('.header-contact').addClass('bgc-white');
+      $('.headerHome, .headerAbout, .headerServices, .headerWorks').removeClass('bgcWhite');
+      $('.headerContact').addClass('bgcWhite');
       
     }
     
     // スクロール フェードイン  --------------------------------------------------------------------
-    
-    $('.fadein').each(function() {
+    var cnt1 = $('#about .fadein').length;       // About内のフェードイン要素のカウント
+    var cnt2 = $('#services .fadein').length;    // Services内のフェードイン要素のカウント
+    var cnt3 = $('#works .fadein').length;       // Works内のフェードイン要素のカウント
+
+    $('.fadein').each(function(i) {
       
       var targetElement = $(this).offset().top;  // ターゲット要素の高さ
       
       if (scrollPosition > targetElement - windowHeight + 200) {
         $(this).css('opacity','1');
         $(this).css('transform','translateY(0)');
+        $(this).css('-webkit-transform','translateY(0)');
+
+        if (window.matchMedia("(max-width: 576px)").matches) {
+          // ウインドウ幅 576px以下
+          
+        } else {
+          // ウインドウ幅 576px超
+          
+          // 各セクションにおけるDelay Timeのリセット
+          if (scrollPosition > positionServices - windowHeight * 4 / 5 && scrollPosition < positionWorks - windowHeight * 4 / 5) {
+            i = i - cnt1;
+            
+          } else if (scrollPosition > positionWorks - windowHeight * 4 / 5 && scrollPosition < positionContact - windowHeight * 4 / 5) {
+            i = i - cnt1 - cnt2;
+
+          } else if (scrollPosition > positionContact - windowHeight * 4 / 5) {
+            i = i - cnt1 - cnt2 - cnt3;
+ 
+          }
+
+          // Delay Timeの設定
+          var delayTime = i * 0.4;
+          $(this).css('transition-delay', delayTime + 's');
+          $(this).css('-webkit-transition-delay', delayTime + 's');
+      
+        }
         
       } else {
         $(this).css('opacity','0');
         $(this).css('transform','translateY(30px)');
+        $(this).css('-webkit-transform','translateY(30px)');
 
       }
       
@@ -239,7 +269,7 @@ $(function() {
     
     // スクロール スライドイン  --------------------------------------------------------------------
     
-    $('.slidein-left, .slidein-right').each(function() {
+    $('.slideinLeft, .slideinRight').each(function() {
       
       var targetElement = $(this).offset().top;  // ターゲット要素の高さ
       
@@ -259,7 +289,7 @@ $(function() {
 
   // Text typing animation --------------------------------------------------------------------
 
-  $('#auto-typing').t({
+  $('#autoTyping').t({
     speed: 300,        // タイプ速度
     speed_vary: true,  // 文字毎にウエイト
     mistype: 10,       // タイピングミス頻度

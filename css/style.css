@@ -83,11 +83,11 @@ img {
   -webkit-transition: 1s;
 }
 
-.bgc-black {
+.bgcBlack {
   background-color: black;
 }
 
-.bgc-white {
+.bgcWhite {
   background-color: #f0f0f0;
 }
 
@@ -98,7 +98,7 @@ hr {
   width: 20%;
 }
 
-.marker-blue {
+.markerBlue {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(82%, transparent), color-stop(0%, #23B6FE));
   background: linear-gradient(transparent 82%, #23B6FE 0%);
 }
@@ -112,7 +112,7 @@ hr {
 }
 
 /* Parallax -------------------------------------------------------------------- */
-.parallax-bg {
+.parallaxBg {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -120,19 +120,19 @@ hr {
   padding: 8%;
 }
 
-.img-bg-01 {
+.imgBg01 {
   background-image: url(../images/slide-1.jpg);
 }
 
-.img-bg-02 {
+.imgBg02 {
   background-image: url(../images/slide-2.jpg);
 }
 
-.img-bg-03 {
+.imgBg03 {
   background-image: url(../images/slide-3.jpg);
 }
 
-.img-bg-04 {
+.imgBg04 {
   background-image: url(../images/slide-4.jpg);
 }
 
@@ -151,35 +151,35 @@ hr {
   position: absolute;
 }
 
-.slideshow-small {
+.slideshowSmall {
   display: none;
 }
 
 /* Hero header -------------------------------------------------------------------- */
-.hero-header {
+.heroHeader {
   position: relative;
 }
 
-.page-title {
+.pageTitle {
   background-color: none;
   position: absolute;
   top: -420px;
 }
 
-.page-title h1 {
+.pageTitle h1 {
   font-size: 6rem;
   padding-bottom: 20px;
 }
 
-.page-title span {
+.pageTitle span {
   color: #23B6FE;
 }
 
-.page-title p {
+.pageTitle p {
   font-size: 2.2rem;
 }
 
-.btn-top {
+.btnTop {
   background-color: #23B6FE;
   border: none;
   font-size: 1.6rem;
@@ -253,7 +253,7 @@ hr {
 }
 
 /* Sticky header --------------------------------------------------------------------　*/
-.page-header {
+.pageHeader {
   background-color: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -261,48 +261,44 @@ hr {
   width: 100%;
 }
 
-.no-boxshadow .page-header {
-  border-bottom: 1px solid #cccccc;
-}
-
 /* Logo */
-.site-logo {
+.siteLogo {
   float: left;
 }
 
-.site-logo img {
+.siteLogo img {
   padding-left: 5px;
   position: relative;
   top: 15px;
 }
 
-.site-logo-small {
+.siteLogoSmall {
   display: none;
 }
 
 /* Primary nav */
-.primary-nav {
+.primaryNav {
   float: right;
   letter-spacing: 1px;
   line-height: 65px;
   text-transform: uppercase;
 }
 
-.primary-nav li {
+.primaryNav li {
   float: left;
 }
 
-.primary-nav a {
+.primaryNav a {
   display: block;
   padding: 0 21px;
 }
 
-.primary-nav a:hover {
+.primaryNav a:hover {
   color: #23B6FE;
 }
 
 /* Sticky header (clone) */
-.page-header-clone {
+.pageHeaderClone {
   background-color: black;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -315,47 +311,47 @@ hr {
   z-index: 30;
 }
 
-.page-header-clone:hover {
+.pageHeaderClone:hover {
   opacity: 1;
 }
 
-.page-header-clone.visible {
+.pageHeaderClone.visible {
   top: 0;
 }
 
-.page-header-clone .site-logo {
+.pageHeaderClone .siteLogo {
   margin-left: 8px;
 }
 
-.page-header-clone .site-logo a {
+.pageHeaderClone .siteLogo a {
   height: 32px;
   display: block;
   overflow: hidden;
   width: 143px;
 }
 
-.page-header-clone .site-logo a:before {
+.pageHeaderClone .siteLogo a:before {
   content: url(../images/logo-small.png);
   display: inline-block;
   position: relative;
   top: 1.5px;
 }
 
-.page-header-clone .primary-nav {
+.pageHeaderClone .primaryNav {
   font-size: 1.4rem;
   line-height: 35px;
 }
 
-.page-header-clone .primary-nav a {
+.pageHeaderClone .primaryNav a {
   color: gray;
 }
 
-.page-header-clone .primary-nav a:hover {
+.pageHeaderClone .primaryNav a:hover {
   color: #23B6FE;
 }
 
 /* ハンバーガーメニュー --------------------------------------------------------------------　*/
-.Toggle {
+.toggle {
   display: none;
 }
 
@@ -365,7 +361,7 @@ hr {
   padding-top: 100px;
 }
 
-.image-box {
+.imageBox {
   height: 230px;
   margin: 0 auto;
   margin-bottom: 100px;
@@ -381,7 +377,7 @@ hr {
   z-index: 10;
 }
 
-.image-border {
+.imageBorder {
   border: 8px #23B6FE solid;
   height: 230px;
   left: 25px;
@@ -390,73 +386,73 @@ hr {
   width: 150px;
 }
 
-.text-box {
+.textBox {
   height: 230px;
   padding: 10px;
 }
 
-.text-box h3 {
+.textBox h3 {
   font-size: 2.8rem;
   line-height: 50px;
   margin-bottom: 20px;
 }
 
-.section-about-1 {
+.sectionAbout01 {
   margin: 0 0 0 calc(50% - 50vw - 15px);
   transition: 1.5s;
   -webkit-transition: 1.5s;
 }
 
-.section-about-1 span {
+.sectionAbout01 span {
   text-align: right;
 }
 
-.section-about-1 img {
+.sectionAbout01 img {
   height: 500px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.section-about-2 {
+.sectionAbout02 {
   margin: 0 calc(50% - 50vw - 15px) 0 0;
   transition: 1.5s;
   -webkit-transition: 1.5s;
 }
 
-.section-about-2 tr {
+.sectionAbout02 tr {
   font-size: 2.8rem;
   line-height: 60px;
 }
 
-.section-about-2 img {
+.sectionAbout02 img {
   height: 500px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 /* スライドイン --------------------------------------------------------------------　*/
-.slidein-left {
+.slideinLeft {
   -webkit-transform: translate(-1140px, 0);
           transform: translate(-1140px, 0);
 }
 
-.slidein-right {
+.slideinRight {
   -webkit-transform: translate(1140px, 0);
           transform: translate(1140px, 0);
 }
 
-.slidein-left.show {
+.slideinLeft.show {
   -webkit-transform: translate(0, 0) !important;
           transform: translate(0, 0) !important;
 }
 
-.slidein-right.show {
+.slideinRight.show {
   -webkit-transform: translate(0, 0) !important;
           transform: translate(0, 0) !important;
 }
 
 /* services --------------------------------------------------------------------　*/
-.section-services {
+.sectionServices {
   border: 1px gray solid;
   border-radius: 3px;
   color: gray;
@@ -468,31 +464,31 @@ hr {
   -webkit-transition: all 0.5s ease 0s;
 }
 
-.section-services:hover {
+.sectionServices:hover {
   -webkit-box-shadow: 0 4px 10px 4px rgba(240, 240, 240, 0.25);
           box-shadow: 0 4px 10px 4px rgba(240, 240, 240, 0.25);
   transform: translateY(-4px);
   -webkit-transform: translateY(-4px);
 }
 
-.section-services i {
+.sectionServices i {
   color: #23B6FE;
   font-size: 3.3rem;
 }
 
-.section-services h3 {
+.sectionServices h3 {
   font-size: 1.8rem;
   margin: 20px 0;
 }
 
 /* works --------------------------------------------------------------------　*/
-.section-works {
+.sectionWorks {
   height: 200px;
   margin-bottom: 30px;
   overflow: hidden;
 }
 
-.section-works img {
+.sectionWorks img {
   border: 1px gray solid;
   -o-object-fit: cover;
      object-fit: cover;
@@ -500,7 +496,7 @@ hr {
   -webkit-transition: all 0.5s ease 0s;
 }
 
-.section-works img:hover {
+.sectionWorks img:hover {
   opacity: .6;
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -518,7 +514,7 @@ hr {
   margin-bottom: 20px;
 }
 
-.form-box {
+.formBox {
   background-color: #333;
   border: 1px gray solid;
   font-size: 1.6rem;
@@ -527,14 +523,14 @@ hr {
   -webkit-transition: all 0.5s ease 0s;
 }
 
-.form-box:hover {
+.formBox:hover {
   -webkit-box-shadow: 0 4px 10px 4px rgba(240, 240, 240, 0.25);
           box-shadow: 0 4px 10px 4px rgba(240, 240, 240, 0.25);
   transform: translateY(-4px);
   -webkit-transform: translateY(-4px);
 }
 
-.btn-form {
+.btnForm {
   background-color: #23B6FE;
   border: none;
   font-size: 1.6rem;
@@ -556,7 +552,7 @@ small {
 }
 
 /* ページスクロール --------------------------------------------------------------------　*/
-#page-top {
+#pageTop {
   background: #d8d8d8;
   border-radius: 50%;
   bottom: 40px;
@@ -574,34 +570,34 @@ small {
 
 /* タブレット --------------------------------------------------------------------　*/
 @media (max-width: 992px) {
-  .parallax-bg {
+  .parallaxBg {
     display: none;
   }
   /* about --------------------------------------------------------------------　*/
-  .status-text {
+  .statusText {
     padding-left: 30px;
   }
-  .status-img {
+  .statusImg {
     padding-right: 0;
   }
-  .skills-text {
+  .skillsText {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  .skills-img {
+  .skillsImg {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     padding-left: 0;
   }
   /* services --------------------------------------------------------------------　*/
-  .section-services {
+  .sectionServices {
     height: 280px;
     padding: 40px;
   }
   /* works --------------------------------------------------------------------　*/
-  .section-works {
+  .sectionWorks {
     margin: 0 auto;
     max-width: 80%;
   }
@@ -612,13 +608,13 @@ small {
   html {
     font-size: 55%;
   }
-  .site-logo,
+  .siteLogo,
   .clearfix:before,
   .clearfix:after {
     display: none;
   }
   /* ヘッダー --------------------------------------------------------------------　*/
-  .site-logo-small {
+  .siteLogoSmall {
     display: block;
     position: fixed;
     /* bodyに対しての絶対位置指定 */
@@ -627,11 +623,11 @@ small {
     z-index: 3;
   }
   /* ハンバーガーメニュー --------------------------------------------------------------------　*/
-  .primary-nav {
+  .primaryNav {
     line-height: 18px;
   }
   /* トグルボタンのスタイルを指定 */
-  .Toggle {
+  .toggle {
     cursor: pointer;
     display: block;
     height: 42px;
@@ -642,7 +638,7 @@ small {
     width: 42px;
     z-index: 3;
   }
-  .Toggle span {
+  .toggle span {
     border-bottom: solid 3px #23B6FE;
     display: block;
     left: 6px;
@@ -653,23 +649,23 @@ small {
     /* 変化の速度を指定 */
     width: 30px;
   }
-  .Toggle span:nth-child(1) {
+  .toggle span:nth-child(1) {
     top: 9px;
   }
-  .Toggle span:nth-child(2) {
+  .toggle span:nth-child(2) {
     top: 18px;
   }
-  .Toggle span:nth-child(3) {
+  .toggle span:nth-child(3) {
     top: 27px;
   }
-  .Toggle.active span:nth-child(1) {
+  .toggle.active span:nth-child(1) {
     transform: translateY(9px) rotate(-315deg);
     -webkit-transform: translateY(9px) rotate(-315deg);
   }
-  .Toggle.active span:nth-child(2) {
+  .toggle.active span:nth-child(2) {
     opacity: 0;
   }
-  .Toggle.active span:nth-child(3) {
+  .toggle.active span:nth-child(3) {
     transform: translateY(-9px) rotate(315deg);
     -webkit-transform: translateY(-9px) rotate(315deg);
   }
@@ -725,39 +721,39 @@ small {
   .slideshow {
     display: none;
   }
-  .slideshow-small {
+  .slideshowSmall {
     display: block;
     height: 640px;
     max-width: 100%;
     overflow: hidden;
     position: relative;
   }
-  .slideshow-small img {
+  .slideshowSmall img {
     display: none;
     -o-object-fit: cover;
        object-fit: cover;
     position: absolute;
   }
   /* about --------------------------------------------------------------------　*/
-  .text-box {
+  .textBox {
     margin-bottom: 40px;
     text-align: center;
   }
-  .section-about-1 img,
-  .section-about-2 img {
+  .sectionAbout01 img,
+  .sectionAbout02 img {
     height: 300px;
   }
   /* services --------------------------------------------------------------------　*/
-  .section-services {
+  .sectionServices {
     height: 230px;
   }
   /* works --------------------------------------------------------------------　*/
-  .section-works {
+  .sectionWorks {
     margin: 0 auto;
     max-width: 55%;
   }
   /* ページスクロール --------------------------------------------------------------------　*/
-  #page-top {
+  #pageTop {
     bottom: 10px;
     font-size: 2.4rem;
     height: 45px;

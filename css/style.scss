@@ -71,10 +71,10 @@ img {
     -webkit-transition: 1s;
   }
 }
-.bgc-black {
+.bgcBlack {
   background-color: black;
 }
-.bgc-white {
+.bgcWhite {
   background-color: rgb(240, 240, 240);
 }
 hr {
@@ -83,7 +83,7 @@ hr {
   height: 2px;
   width: 20%;
 }
-.marker-blue {
+.markerBlue {
   background: linear-gradient(transparent 82%, $main-blue 0%);
 }
 .fadein {
@@ -95,23 +95,23 @@ hr {
 }
 
 /* Parallax -------------------------------------------------------------------- */
-.parallax-bg {
+.parallaxBg {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 8%;
 }
-.img-bg-01 {
+.imgBg01 {
   background-image: url(../images/slide-1.jpg);
 }
-.img-bg-02 {
+.imgBg02 {
   background-image: url(../images/slide-2.jpg);
 }
-.img-bg-03 {
+.imgBg03 {
   background-image: url(../images/slide-3.jpg);
 }
-.img-bg-04 {
+.imgBg04 {
   background-image: url(../images/slide-4.jpg);
 }
 
@@ -127,15 +127,15 @@ hr {
     position: absolute;
   }
 }
-.slideshow-small {
+.slideshowSmall {
   display: none;
 }
 
 /* Hero header -------------------------------------------------------------------- */
-.hero-header {
+.heroHeader {
   position: relative;
 }
-.page-title {
+.pageTitle {
   background-color: none;
   position: absolute;
   top: -420px;
@@ -150,7 +150,7 @@ hr {
     font-size: 2.2rem;
   }
 }
-.btn-top {
+.btnTop {
   background-color: $main-blue;
   border: none;
   font-size: 1.6rem;
@@ -208,19 +208,15 @@ hr {
 }
 
 /* Sticky header --------------------------------------------------------------------　*/
-.page-header {
+.pageHeader {
   background-color: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   color: #333;
   width: 100%;
 }
-.no-boxshadow .page-header {
-  border-bottom: 1px solid rgb(204, 204, 204);
-}
-
 /* Logo */
-.site-logo {
+.siteLogo {
   float: left;
   img {
     padding-left: 5px;
@@ -228,11 +224,11 @@ hr {
     top: 15px;
   }
 }
-.site-logo-small {
+.siteLogoSmall {
   display: none;
 }
 /* Primary nav */
-.primary-nav {
+.primaryNav {
   float: right;
   letter-spacing: 1px;
   line-height: 65px;
@@ -250,7 +246,7 @@ hr {
 }
 
 /* Sticky header (clone) */
-.page-header-clone {
+.pageHeaderClone {
   background-color: black;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -267,7 +263,7 @@ hr {
   &.visible {
     top: 0;
   }
-  .site-logo {
+  .siteLogo {
     margin-left: 8px;
     a {
       height: 32px;
@@ -282,7 +278,7 @@ hr {
       }
     }
   }
-  .primary-nav {
+  .primaryNav {
     font-size: 1.4rem;
     line-height: 35px;
     a {
@@ -295,7 +291,7 @@ hr {
 }
 
 /* ハンバーガーメニュー --------------------------------------------------------------------　*/
-.Toggle {
+.toggle {
   display: none;
 }
   
@@ -304,7 +300,7 @@ hr {
   padding-bottom: 0;
   padding-top: 100px;
 }
-.image-box {
+.imageBox {
   height: 230px;
   margin: 0 auto;
   margin-bottom: 100px;
@@ -317,7 +313,7 @@ hr {
   position: absolute;
   z-index: 10;
 }
-.image-border {
+.imageBorder {
   border: 8px $main-blue solid;
   height: 230px;
   left: 25px;
@@ -325,7 +321,7 @@ hr {
   top: 25px;
   width: 150px;
 }
-.text-box {
+.textBox {
   height: 230px;
   padding: 10px;
   h3 {
@@ -338,7 +334,7 @@ hr {
   height: 500px;
   object-fit: cover;
 }
-.section-about-1 {
+.sectionAbout01 {
   margin: 0 0 0 calc(50% - 50vw - 15px);
   transition: 1.5s;
   -webkit-transition: 1.5s;
@@ -349,7 +345,7 @@ hr {
     @include about-img;
   }
 }
-.section-about-2 {
+.sectionAbout02 {
   margin: 0 calc(50% - 50vw - 15px) 0 0;
   transition: 1.5s;
   -webkit-transition: 1.5s;
@@ -363,21 +359,21 @@ hr {
 }
 
 /* スライドイン --------------------------------------------------------------------　*/
-.slidein-left {
+.slideinLeft {
   transform: translate(-1140px, 0);
 }
-.slidein-right {
+.slideinRight {
   transform: translate(1140px, 0); 
 }
-.slidein-left.show {
+.slideinLeft.show {
   transform: translate(0, 0) !important;
 }
-.slidein-right.show {
+.slideinRight.show {
   transform: translate(0, 0) !important;
 }
 
 /* services --------------------------------------------------------------------　*/
-.section-services {
+.sectionServices {
   border: 1px $sub-gray solid;
   border-radius: 3px;
   color: $sub-gray;
@@ -403,7 +399,7 @@ hr {
 }
 
 /* works --------------------------------------------------------------------　*/
-.section-works {
+.sectionWorks {
   height: 200px;
   margin-bottom: 30px;
   overflow: hidden;
@@ -430,7 +426,7 @@ hr {
   color: $sub-gray;
   margin-bottom: 20px;
 }
-.form-box {
+.formBox {
   background-color: #333;
   border: 1px $sub-gray solid;
   font-size: 1.6rem;
@@ -443,7 +439,7 @@ hr {
     -webkit-transform: translateY(-4px);
   }
 }
-.btn-form {
+.btnForm {
   background-color: $main-blue;
   border: none;
   font-size: 1.6rem;
@@ -463,7 +459,7 @@ small {
 }
 
 /* ページスクロール --------------------------------------------------------------------　*/
-#page-top {
+#pageTop {
   background: #d8d8d8;
   border-radius: 50%;
   bottom: 40px;
@@ -482,33 +478,33 @@ small {
 /* タブレット --------------------------------------------------------------------　*/
 @media (max-width: 992px) {
   
-  .parallax-bg {
+  .parallaxBg {
     display: none;
   }
 
   /* about --------------------------------------------------------------------　*/
-  .status-text {
+  .statusText {
     padding-left: 30px;
   }
-  .status-img {
+  .statusImg {
     padding-right: 0;
   }
-  .skills-text {
+  .skillsText {
     order: 2;
   }
-  .skills-img {
+  .skillsImg {
     order: 1;
     padding-left: 0;
   }
 
   /* services --------------------------------------------------------------------　*/
-  .section-services {
+  .sectionServices {
     height: 280px;
     padding: 40px;
   }
 
   /* works --------------------------------------------------------------------　*/
-  .section-works {
+  .sectionWorks {
     margin: 0 auto;
     max-width: 80%;
   }
@@ -521,14 +517,14 @@ small {
   html {
     font-size: 55%;
   }
-  .site-logo,
+  .siteLogo,
   .clearfix:before,
   .clearfix:after {
     display: none;
   }
 
   /* ヘッダー --------------------------------------------------------------------　*/
-  .site-logo-small {
+  .siteLogoSmall {
     display: block;
     position: fixed;                         /* bodyに対しての絶対位置指定 */
     left: 15px;
@@ -537,11 +533,11 @@ small {
   }
 
   /* ハンバーガーメニュー --------------------------------------------------------------------　*/
-  .primary-nav {
+  .primaryNav {
     line-height: 18px;
   }
   /* トグルボタンのスタイルを指定 */
-  .Toggle {
+  .toggle {
     cursor: pointer;
     display: block;
     height: 42px;
@@ -620,7 +616,7 @@ small {
   .slideshow {
     display: none;
   }
-  .slideshow-small {
+  .slideshowSmall {
     display: block;
     height: 640px;
     max-width: 100%;
@@ -634,28 +630,28 @@ small {
   }
 
   /* about --------------------------------------------------------------------　*/
-  .text-box {
+  .textBox {
     margin-bottom: 40px;
     text-align: center;
   }
-  .section-about-1 img,
-  .section-about-2 img {
+  .sectionAbout01 img,
+  .sectionAbout02 img {
     height: 300px;
   }
 
   /* services --------------------------------------------------------------------　*/
-  .section-services {
+  .sectionServices {
     height: 230px;
   }
 
   /* works --------------------------------------------------------------------　*/
-  .section-works {
+  .sectionWorks {
     margin: 0 auto;
     max-width: 55%;
   }
 
   /* ページスクロール --------------------------------------------------------------------　*/
-  #page-top {
+  #pageTop {
     bottom: 10px;
     font-size: 2.4rem;
     height: 45px;
