@@ -557,6 +557,7 @@ small {
   border-radius: 50%;
   bottom: 40px;
   color: #333;
+  cursor: pointer;
   display: none;
   font-size: 4rem;
   height: 60px;
