@@ -1,0 +1,119 @@
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+body #container {
+  background-blend-mode: overlay;
+  background-color: #003200;
+  background-image: url(../img/bg-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 680px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 960px;
+}
+
+body #container h1 {
+  font-size: 40px;
+  letter-spacing: 4px;
+}
+
+body #container section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 160px;
+  text-align: left;
+}
+
+body #container section ul {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+body #container section ul li {
+  line-height: 160px;
+  width: 120px;
+}
+
+body #container section ul li img {
+  vertical-align: middle;
+  width: 100px;
+}
+
+body #container #btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #container #btns .btn {
+  background-color: orange;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px orangered;
+          box-shadow: 0 4px orangered;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100px;
+}
+
+body #container #btns .btn:hover {
+  opacity: .6;
+}
+
+body #container #btns .btn:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: 4px;
+}
+
+body #container #btns #startBtn.inactive,
+body #container #btns #hitBtn.inactive,
+body #container #btns #stayBtn.inactive {
+  opacity: .6;
+}
+
+body #container #result {
+  font-size: 40px;
+  -webkit-animation: blink 1s ease-in-out infinite alternate;
+          animation: blink 1s ease-in-out infinite alternate;
+}
+/*# sourceMappingURL=style.css.map */

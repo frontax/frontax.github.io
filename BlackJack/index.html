@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Jack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="container">
+    <h1>Black Jack</h1>
+
+    <section>
+      <h2>Dealer<br>[ <span id="dScore">0</span> ]</h2>
+      <ul id="dealer">
+      </ul>
+    </section>
+
+    <section>
+      <h2>Player<br>[ <span id="pScore">0</span> ]</h2>
+      <ul id="player">
+      </ul>
+    </section>
+
+    <p>Dealer must stand on 17 and must draw to 16</p>
+
+    <div id="btns">
+      <div id="startBtn" class="btn">START</div>
+      <div id="hitBtn" class="btn">HIT</div>
+      <div id="stayBtn" class="btn">STAY</div>
+    </div>
+
+    <p id="result"></p>  
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
