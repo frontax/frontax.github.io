@@ -18,7 +18,7 @@
   let dealerFirstCard; // Dealerの1枚目のカード
   let dealerAceCnt;    // DealerのAce枚数
   let playerAceCnt;    // PlayerのAce枚数
-  let intervalId;
+  let timeoutId;       // setTimeoutのID
 
   // カードクラス
   class Card {
@@ -114,26 +114,45 @@
     }
   }
 
-  // Dealerが山札からカードを取得 -----------------------------------------------------------------------------
-  function dealerTurn() {
-    
-    // Dealerの1枚目のカードを表にする
-    dealer.firstElementChild.querySelector('img').src = dealerFirstCard;
-    dScore.textContent = dealerScore;
-    
-    // スコアが17以上になるまでカードを取得
-    while(dealerScore < 17) {
-      deal(true);
 
+  // スコアが17以上になるまでカードを取得
+  function score17Check() {
+    if (dealerScore < 17) {
+      deal(true);
+  
+      // BustしてAceがある場合は10とカウントする
       if (dealerScore > 21 && dealerAceCnt > 0) {
         dealerScore -= 10;
         dealerAceCnt -- ;
       }
       dScore.textContent = dealerScore;
+
+      timeoutId = setTimeout(() => {
+        if (dealerScore >= 17) {
+          clearTimeout(timeoutId);
+          return;
+        }
+        score17Check();
+      }, 500);
     }
-    
-    checkResult(); // 勝敗の判定
-    setup();       // ゲームの再セットアップ
+  }
+
+  // Dealerが山札からカードを取得 -----------------------------------------------------------------------------
+  function dealerTurn() {
+    sleep(1000)
+      .then(function() {
+        // Dealerの1枚目のカードを表にする
+        dealer.firstElementChild.querySelector('img').src = dealerFirstCard;
+        dScore.textContent = dealerScore;
+        return sleep(500);
+      })
+      .then(function() {
+        score17Check();   // スコアが17以上になるまでカードを取得
+      })
+      .then(function() {
+        checkResult();    // 勝敗の判定
+        setup();          // ゲームの再セットアップ
+      });
   }
   
   // 勝敗を判定する -----------------------------------------------------------------------------
@@ -198,6 +217,7 @@
         return sleep(1000);
       })
       .then(function() {
+        // Black jackの場合 はDealerの番へ
         if (playerScore === 21) {
           hitBtn.classList.add('inactive');
           stayBtn.classList.add('inactive');
@@ -214,18 +234,17 @@
     
     deal(false);
 
+    // Aceがある場合はBustせず Aceを10とカウントする
     if (playerScore > 21 && playerAceCnt > 0) {
       playerScore -= 10;
       playerAceCnt -- ;
       pScore.textContent = playerScore;
 
+    // Bustした場合 または 21の場合 はDealerの番へ
     } else if ((playerScore > 21 && playerAceCnt === 0) || playerScore === 21) {
       hitBtn.classList.add('inactive');
       stayBtn.classList.add('inactive');
-      sleep(1000)
-      .then(function() {
-        dealerTurn();
-      });
+      dealerTurn();
     }
   });
   
@@ -237,10 +256,7 @@
 
     hitBtn.classList.add('inactive');
     stayBtn.classList.add('inactive');
-    sleep(1000)
-      .then(function() {
-        dealerTurn();
-      });
+    dealerTurn();
   });
   
   setup(); // ゲームの初期セットアップ

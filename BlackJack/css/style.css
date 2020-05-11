@@ -96,7 +96,7 @@ body #container #btns .btn {
 }
 
 body #container #btns .btn:hover {
-  opacity: .6;
+  opacity: .8;
 }
 
 body #container #btns .btn:active {
@@ -108,7 +108,7 @@ body #container #btns .btn:active {
 body #container #btns #startBtn.inactive,
 body #container #btns #hitBtn.inactive,
 body #container #btns #stayBtn.inactive {
-  opacity: .6;
+  opacity: .5;
 }
 
 body #container #result {

@@ -59,7 +59,7 @@ body {
         width: 100px;
       }
       .btn:hover {
-        opacity: .6;
+        opacity: .8;
       }
       .btn:active {
         box-shadow: none;
@@ -68,7 +68,7 @@ body {
       #startBtn.inactive,
       #hitBtn.inactive,
       #stayBtn.inactive {
-        opacity: .6;
+        opacity: .5;
       }
     }
     #result {
