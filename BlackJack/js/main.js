@@ -143,6 +143,9 @@
       .then(function() {
         // Dealerの1枚目のカードを表にする
         dealer.firstElementChild.querySelector('img').src = dealerFirstCard;
+        return sleep(500);
+      })
+      .then(function() {
         dScore.textContent = dealerScore;
         return sleep(500);
       })
