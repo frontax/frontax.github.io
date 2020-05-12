@@ -114,13 +114,12 @@
     }
   }
 
-
   // スコアが17以上になるまでカードを取得
   function score17Check() {
     if (dealerScore < 17) {
       deal(true);
   
-      // BustしてAceがある場合は10とカウントする
+      // BustしてAceがある場合は1とカウントする
       if (dealerScore > 21 && dealerAceCnt > 0) {
         dealerScore -= 10;
         dealerAceCnt -- ;
@@ -143,7 +142,6 @@
       .then(function() {
         // Dealerの1枚目のカードを表にする
         dealer.firstElementChild.querySelector('img').src = dealerFirstCard;
-        return sleep(500);
       })
       .then(function() {
         dScore.textContent = dealerScore;
@@ -237,7 +235,7 @@
     
     deal(false);
 
-    // Aceがある場合はBustせず Aceを10とカウントする
+    // Aceがある場合はBustせず Aceを1とカウントする
     if (playerScore > 21 && playerAceCnt > 0) {
       playerScore -= 10;
       playerAceCnt -- ;
