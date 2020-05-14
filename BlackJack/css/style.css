@@ -49,6 +49,11 @@ body #container section {
   text-align: left;
 }
 
+body #container section h2 {
+  display: inline-block;
+  width: 94px;
+}
+
 body #container section ul {
   -webkit-box-align: center;
       -ms-flex-align: center;

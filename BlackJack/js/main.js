@@ -89,7 +89,7 @@
         } else {
           dealerScore += 1;
         }
-      } else if (card[0].num > 10) {
+      } else if (card[0].num >= 11) {
         dealerScore += 10;
       } else {
         dealerScore += card[0].num;
@@ -105,7 +105,7 @@
         } else {
           playerScore += 1;
         }
-      } else if (card[0].num > 10) {
+      } else if (card[0].num >= 11) {
         playerScore += 10;
       } else {
         playerScore += card[0].num;
@@ -116,24 +116,24 @@
 
   // スコアが17以上になるまでカードを取得
   function score17Check() {
-    if (dealerScore < 17) {
-      deal(true);
-  
-      // BustしてAceがある場合は1とカウントする
-      if (dealerScore > 21 && dealerAceCnt > 0) {
-        dealerScore -= 10;
-        dealerAceCnt -- ;
-      }
-      dScore.textContent = dealerScore;
+    deal(true);
 
-      timeoutId = setTimeout(() => {
-        if (dealerScore >= 17) {
-          clearTimeout(timeoutId);
-          return;
-        }
-        score17Check();
-      }, 500);
+    // BustしてAceがある場合は1とカウントする
+    if (dealerScore >= 22 && dealerAceCnt > 0) {
+      dealerScore -= 10;
+      dealerAceCnt -- ;
     }
+    dScore.textContent = dealerScore;
+    console.log(`score17Check Dealer: ${dealerScore}`);
+    console.log(`score17Check Player: ${playerScore}`);
+
+    timeoutId = setTimeout(() => {
+      if (dealerScore >= 17) {
+        clearTimeout(timeoutId);
+        return;
+      }
+      score17Check();
+    }, 500);
   }
 
   // Dealerが山札からカードを取得 -----------------------------------------------------------------------------
@@ -149,7 +149,10 @@
         return sleep(500);
       })
       .then(function() {
-        score17Check();   // スコアが17以上になるまでカードを取得
+        if (dealerScore <= 16) {
+          score17Check();   // スコアが17以上になるまでカードを取得
+        }
+        return sleep(500);
       })
       .then(function() {
         checkResult();    // 勝敗の判定
@@ -159,13 +162,15 @@
   
   // 勝敗を判定する -----------------------------------------------------------------------------
   function checkResult() {
-    if ((playerScore < dealerScore && dealerScore <= 21) || (dealerScore <= 21 && playerScore > 21)) {
+    if ((playerScore < dealerScore && dealerScore <= 21) || (dealerScore <= 21 && playerScore >= 22)) {
       result.textContent = 'You lose';
-    } else if (dealerScore < playerScore && playerScore <= 21 || (playerScore <= 21 && dealerScore > 21)) {
+    } else if (dealerScore < playerScore && playerScore <= 21 || (playerScore <= 21 && dealerScore >= 22)) {
       result.textContent = 'You win !';
     } else {
       result.textContent = 'Draw';
     }
+    console.log(`CheckResult Dealer: ${dealerScore}`);
+    console.log(`CheckResult Player: ${playerScore}`);
   }
   
   // ゲームをスタートする -----------------------------------------------------------------------------
@@ -237,13 +242,13 @@
     deal(false);
 
     // Aceがある場合はBustせず Aceを1とカウントする
-    if (playerScore > 21 && playerAceCnt > 0) {
+    if (playerScore >= 22 && playerAceCnt > 0) {
       playerScore -= 10;
       playerAceCnt -- ;
       pScore.textContent = playerScore;
 
     // Bustした場合 または 21の場合 はDealerの番へ
-    } else if ((playerScore > 21 && playerAceCnt === 0) || playerScore === 21) {
+    } else if ((playerScore >= 22 && playerAceCnt === 0) || playerScore === 21) {
       hitBtn.classList.add('inactive');
       stayBtn.classList.add('inactive');
       dealerTurn();

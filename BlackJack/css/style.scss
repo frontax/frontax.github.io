@@ -29,6 +29,10 @@ body {
       display: flex;
       height: 160px;
       text-align: left;
+      h2 {
+        display: inline-block;
+        width: 94px;
+      }
       ul {
         align-items: center;
         display: flex;
@@ -77,4 +81,3 @@ body {
     }
   }
 }
-
