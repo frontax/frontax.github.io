@@ -112,24 +112,12 @@ $(function() {
     
   });
   
-  var overFlg; // マウスカーソルがメニュー上 or メニュー外
-
-  $('.NavMenu, .toggle').hover(function() {
-
-    overFlg = true;
-
-  }, function() {
-
-    overFlg = false;
-
-  });
-
   // メニュー外をクリックしたらメニューを閉じる
-  $('body').click(function() {
+  $(document).on('click', function(event) {
 
-    if (overFlg == false) {
-      $('.NavMenu, .toggle').removeClass('active');
-
+    if(!$(event.target).closest('.toggle, .NavMenu').length) {
+      $('.toggle').removeClass('active');
+      $('.NavMenu').removeClass('active');
     }
 
   });
